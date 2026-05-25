@@ -51,9 +51,9 @@ export default function App() {
       let tzString = "Asia/Jakarta"; // Default to WIB
       if (timeZone === "WITA") tzString = "Asia/Makassar";
       if (timeZone === "WIT") tzString = "Asia/Jayapura";
-      
-      setCurrentTime(now.toLocaleTimeString("en-US", { hour12: false, timeZone: tzString }));
-      setCurrentDateString(now.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: tzString }));
+
+      setCurrentTime(now.toLocaleTimeString("id-ID", { hour12: false, timeZone: tzString }));
+      setCurrentDateString(now.toLocaleDateString("id-ID", { year: "numeric", month: "short", day: "numeric", timeZone: tzString }));
     };
 
     updateTime();
@@ -159,7 +159,7 @@ export default function App() {
 
   return (
     <div id="application-root" className="min-h-screen relative bg-[#060606] overflow-x-hidden selection:bg-neutral-800 selection:text-white transition-colors duration-1000">
-      
+
       {/* Immersive UI Atmospheric Background Glow Gradients */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Dynamic slow breathing aurora 1 */}
@@ -173,11 +173,10 @@ export default function App() {
       {/* 1. Header (Dynamic Floating Navbar) */}
       <header
         id="app-header"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "py-3 bg-neutral-950/85 backdrop-blur-md border-b border-neutral-900 shadow-md"
-            : "py-6 bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
+          ? "py-3 bg-neutral-950/85 backdrop-blur-md border-b border-neutral-900 shadow-md"
+          : "py-6 bg-transparent"
+          }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           <div
@@ -205,28 +204,28 @@ export default function App() {
               onClick={() => scrollToSection("projects-anchor")}
               className="hover:text-white hover:scale-103 transition-all cursor-pointer font-medium"
             >
-              // Case Studies
+              // Proyek
             </button>
             <button
               id="nav-link-skills"
               onClick={() => scrollToSection("skills-anchor")}
               className="hover:text-white hover:scale-103 transition-all cursor-pointer font-medium"
             >
-              // Diagnostics
+              // Keahlian
             </button>
             <button
               id="nav-link-experience"
               onClick={() => scrollToSection("experience-anchor")}
               className="hover:text-white hover:scale-103 transition-all cursor-pointer font-medium"
             >
-              // Timeline
+              // Pengalaman
             </button>
             <button
               id="nav-link-contact"
               onClick={() => scrollToSection("contact-anchor")}
               className="hover:text-white hover:scale-103 transition-all cursor-pointer font-medium"
             >
-              // Connection
+              // Kontak
             </button>
           </nav>
 
@@ -236,7 +235,7 @@ export default function App() {
             <button
               id="timezone-cycle-btn"
               onClick={cycleTimeZone}
-              title="Change Timezone"
+              title="Ubah Zona Waktu"
               className="hidden sm:flex items-center space-x-2 bg-neutral-900/60 border border-neutral-900 px-3.5 py-1.5 rounded-full select-none font-mono text-[10px] text-neutral-400 hover:bg-neutral-800 transition-colors cursor-pointer"
             >
               <Clock className={`h-3 w-3 ${style.text}`} />
@@ -249,7 +248,7 @@ export default function App() {
               id="header-config-trigger"
               onClick={() => setShowConfig(!showConfig)}
               className={`p-2 rounded-xl bg-neutral-900 border ${style.border} text-neutral-400 hover:text-white select-none transition-all hover:scale-105 cursor-pointer max-md:hidden`}
-              title="Tailor Luxury Accents"
+              title="Sesuaikan Akses Mewah"
             >
               <Sliders className="h-4 w-4" />
             </button>
@@ -281,35 +280,35 @@ export default function App() {
                   onClick={() => scrollToSection("projects-anchor")}
                   className="text-left py-2 hover:text-white"
                 >
-                  // Project Spec Sheets
+                  // Portofolio Proyek
                 </button>
                 <button
                   id="mobile-link-skills"
                   onClick={() => scrollToSection("skills-anchor")}
                   className="text-left py-2 hover:text-white"
                 >
-                  // Diagnostic Telemetry
+                  // Daftar Keahlian
                 </button>
                 <button
                   id="mobile-link-experience"
                   onClick={() => scrollToSection("experience-anchor")}
                   className="text-left py-2 hover:text-white"
                 >
-                  // Career Timeline
+                  // Riwayat Pengalaman
                 </button>
                 <button
                   id="mobile-link-contact"
                   onClick={() => scrollToSection("contact-anchor")}
                   className="text-left py-2 hover:text-white"
                 >
-                  // Synchronize Inbound
+                  // Hubungi Saya
                 </button>
               </div>
 
               {/* Theme customizer for mobile right in menu drawer */}
               <div className="border-t border-neutral-900 pt-4 mt-2">
                 <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500 mb-3.5">
-                  Choose Accents
+                  Pilih Aksen
                 </span>
                 <div className="flex flex-wrap gap-2.5">
                   {(["gold", "emerald", "bronze", "platinum", "crimson"] as LuxuryAccent[]).map((col) => (
@@ -317,11 +316,10 @@ export default function App() {
                       id={`mobile-theme-btn-${col}`}
                       key={col}
                       onClick={() => setAccent(col)}
-                      className={`text-[10px] font-mono px-3 py-1.5 rounded-lg border uppercase tracking-wider ${
-                        accent === col
-                          ? `${style.borderActive} ${style.bg} text-neutral-950 font-bold`
-                          : "border-neutral-800 text-neutral-400 bg-neutral-900/50"
-                      }`}
+                      className={`text-[10px] font-mono px-3 py-1.5 rounded-lg border uppercase tracking-wider ${accent === col
+                        ? `${style.borderActive} ${style.bg} text-neutral-950 font-bold`
+                        : "border-neutral-800 text-neutral-400 bg-neutral-900/50"
+                        }`}
                     >
                       {col}
                     </button>
@@ -362,7 +360,7 @@ export default function App() {
         {/* Hero Interactive Main Cards & Column Grid */}
         <div id="hero-foreground" className="w-full max-w-7xl mx-auto px-4 md:px-8 relative z-10 flex flex-col justify-center h-full pt-12 md:pt-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Primary Title Cluster */}
             <div id="hero-title-group" className="lg:col-span-8 text-left space-y-6">
               <motion.div
@@ -388,9 +386,9 @@ export default function App() {
                   transition={{ duration: 0.6, delay: 0.15 }}
                   className="text-4xl sm:text-5xl md:text-7xl font-display font-medium tracking-tight text-white leading-[1.05]"
                 >
-                  ENGINEERING FOR <br />
+                  REKAYASA UNTUK <br />
                   <span className={`text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400 font-semibold block`}>
-                    HIGH-IMPACT SCALE.
+                    SKALA BERDAMPAK TINGGI.
                   </span>
                 </motion.h1>
 
@@ -429,7 +427,7 @@ export default function App() {
                   className={`px-5 py-3 text-xs font-mono uppercase tracking-widest font-bold text-neutral-950 transition-all rounded-xl cursor-pointer hover:shadow-2xl hover:scale-103 flex items-center gap-1.5 select-none`}
                   style={{ backgroundColor: "white" }}
                 >
-                  <span>Inspect Projects Catalog</span>
+                  <span>Lihat Katalog Proyek</span>
                   <ChevronRight className="h-4 w-4" />
                 </button>
 
@@ -438,7 +436,7 @@ export default function App() {
                   onClick={() => scrollToSection("contact-anchor")}
                   className={`px-5 py-3 text-xs font-mono uppercase tracking-widest font-bold text-neutral-300 bg-neutral-950/80 backdrop-blur border border-neutral-900 rounded-xl cursor-pointer transition-all ${style.buttonHover} hover:scale-103 select-none`}
                 >
-                  Synchronize Channels
+                  Hubungi Saya
                 </button>
               </motion.div>
             </div>
@@ -457,34 +455,34 @@ export default function App() {
 
                 <div className="flex items-center space-x-2 text-xs font-mono uppercase text-neutral-500 tracking-widest border-b border-neutral-900 pb-3 mb-4">
                   <Terminal className={`h-4 w-4 ${style.text}`} />
-                  <span>Developer Environment</span>
+                  <span>Lingkungan Pengembang</span>
                 </div>
 
                 <div className="space-y-4 font-mono text-[11px] text-neutral-400">
                   <div className="flex justify-between items-center bg-neutral-900/30 p-2.5 rounded-lg border border-neutral-900/40">
-                    <span className="text-neutral-500">PRIMARY STACK :</span>
+                    <span className="text-neutral-500">STACK UTAMA :</span>
                     <span className="text-neutral-200">LARAVEL + REACT + MYSQL</span>
                   </div>
 
                   <div className="flex justify-between items-center bg-neutral-900/30 p-2.5 rounded-lg border border-neutral-900/40">
-                    <span className="text-neutral-500">DEV TOOLING :</span>
+                    <span className="text-neutral-500">ALAT PENGEMBANG :</span>
                     <span className="text-neutral-200">AntiGravity - VSCODE</span>
                   </div>
 
                   <div className="flex justify-between items-center bg-neutral-900/30 p-2.5 rounded-lg border border-neutral-900/40">
-                    <span className="text-neutral-500">PAGE SPEED :</span>
-                    <span className={style.text}>&lt; 1.2s LOAD TIME</span>
+                    <span className="text-neutral-500">KECEPATAN HALAMAN :</span>
+                    <span className={style.text}>&lt; 1.2 dtk WAKTU MUAT</span>
                   </div>
 
                   <div className="flex justify-between items-center bg-neutral-900/30 p-2.5 rounded-lg border border-neutral-900/40">
-                    <span className="text-neutral-500">STAMP DATE :</span>
-                    <span className="text-neutral-300 font-bold">{currentDateString || "May 25, 2026"}</span>
+                    <span className="text-neutral-500">TANGGAL CAP :</span>
+                    <span className="text-neutral-300 font-bold">{currentDateString || "25 Mei 2026"}</span>
                   </div>
                 </div>
 
                 <div className="mt-5 pt-3.5 border-t border-neutral-900/60 flex items-center justify-between text-[10px] font-mono text-neutral-600">
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck className={`h-3.5 w-3.5 ${style.text}`} /> SECURE PIPELINE ESTABLISHED
+                    <ShieldCheck className={`h-3.5 w-3.5 ${style.text}`} /> PIPELINE AMAN TERBENTUK
                   </span>
                 </div>
               </div>
@@ -494,7 +492,7 @@ export default function App() {
 
         {/* Dynamic down indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 cursor-pointer" onClick={() => scrollToSection("impact-stats-anchor")}>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-600">Scroll System</span>
+          <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-600">Sistem Gulir</span>
           <div className="w-[1.2px] h-6 bg-neutral-800 relative overflow-hidden">
             <div className={`absolute top-0 inset-x-0 h-2 bg-white animate-bounce`} style={{ animationDuration: "2.5s" }} />
           </div>
@@ -510,35 +508,35 @@ export default function App() {
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center md:text-left space-y-1">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Responsive Design</span>
+              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Desain Responsif</span>
               <div className="text-3xl md:text-4xl font-mono font-bold tracking-tight text-white flex items-center justify-center md:justify-start gap-1">
                 100% <span className={`text-xs ${style.text}`}><Award className="h-4 w-4" /></span>
               </div>
-              <span className="block text-xs text-neutral-400 font-sans">Mobile & Desktop Friendly</span>
+              <span className="block text-xs text-neutral-400 font-sans">Ramah Seluler & Desktop</span>
             </div>
 
             <div className="text-center md:text-left space-y-1">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Projects & Apps</span>
+              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Proyek & Aplikasi</span>
               <div className="text-3xl md:text-4xl font-mono font-bold tracking-tight text-white">
-                15+ <span className="text-xs text-neutral-500">Completed</span>
+                15+ <span className="text-xs text-neutral-500">Selesai</span>
               </div>
-              <span className="block text-xs text-neutral-400 font-sans">Including Web & Mobile Apps</span>
+              <span className="block text-xs text-neutral-400 font-sans">Termasuk Aplikasi Web & Seluler</span>
             </div>
 
             <div className="text-center md:text-left space-y-1">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Technologies</span>
+              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Teknologi</span>
               <div className="text-3xl md:text-4xl font-mono font-bold tracking-tight text-white">
-                7+ <span className="text-xs text-neutral-500">Frameworks</span>
+                7+ <span className="text-xs text-neutral-500">Kerangka Kerja</span>
               </div>
-              <span className="block text-xs text-neutral-400 font-sans">React, Laravel, MySQL, etc.</span>
+              <span className="block text-xs text-neutral-400 font-sans">React, Laravel, MySQL, dll.</span>
             </div>
 
             <div className="text-center md:text-left space-y-1">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Performance</span>
+              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">// Performa</span>
               <div className="text-3xl md:text-4xl font-mono font-bold tracking-tight text-white">
-                &lt; 1.2s <span className="text-xs text-neutral-500">Load Time</span>
+                &lt; 1.2 dtk <span className="text-xs text-neutral-500">Waktu Muat</span>
               </div>
-              <span className="block text-xs text-neutral-400 font-sans">SEO Optimized & Fast Load</span>
+              <span className="block text-xs text-neutral-400 font-sans">Teroptimasi SEO & Muat Cepat</span>
             </div>
           </div>
         </div>
@@ -553,13 +551,13 @@ export default function App() {
           {/* Header Section */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <div className="p-1 px-3.5 border border-neutral-900 rounded-full w-fit bg-neutral-950/40 text-[10px] font-mono uppercase tracking-widest text-neutral-500 mx-auto">
-               Technical Directory List
+              Portofolio Proyek
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-medium text-white tracking-tight">
-              High-Impact Case Studies
+              Karya Pilihan
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-              Dive into full-stack smart stores, automated payment integration pathways, and highly interactive portfolio applications designed for performance.
+              Menampilkan berbagai solusi web yang pernah saya bangun, mulai dari aplikasi e-commerce hingga sistem manajemen internal.
             </p>
           </div>
 
@@ -577,13 +575,13 @@ export default function App() {
           {/* Title Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <div className="p-1 px-3.5 border border-neutral-900 rounded-full w-fit bg-neutral-950/40 text-[10px] font-mono uppercase tracking-widest text-neutral-500 mx-auto">
-               System Capabilities
+              Kemampuan Sistem
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-medium text-white tracking-tight">
-              Axiomatic Competency Diagnostics
+              Diagnostik Kompetensi Aksiomatik
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-              Probing web application structure, database architecture, frontend reactivity, and modern full-stack developer specialties.
+              Meneliti struktur aplikasi web, arsitektur database, reaktivitas frontend, dan spesialisasi pengembang full-stack modern.
             </p>
           </div>
 
@@ -601,13 +599,13 @@ export default function App() {
           {/* Title Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <div className="p-1 px-3.5 border border-neutral-900 rounded-full w-fit bg-neutral-950/40 text-[10px] font-mono uppercase tracking-widest text-neutral-500 mx-auto">
-               Career Chronology
+              Riwayat Karir
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-medium text-white tracking-tight">
-              Systems Experience Log
+              Pengalaman Profesional
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-              A comprehensive history of building modern full-stack web solutions, database systems, and dynamic user interfaces.
+              Perjalanan profesional dan pendidikan saya dalam dunia pengembangan perangkat lunak.
             </p>
           </div>
 
@@ -615,7 +613,7 @@ export default function App() {
           <div className="relative border-l border-neutral-950/20 md:border-l-2 md:border-neutral-900 ml-4 md:ml-32 space-y-14">
             {DETAILED_EXPERIENCE.map((exp) => (
               <div id={`experience-block-${exp.id}`} key={exp.id} className="relative group pl-6 md:pl-10">
-                
+
                 {/* Horizontal reference indicator node projecting company period */}
                 <span className="hidden md:block absolute right-full top-1 mr-10 font-mono text-[11px] text-neutral-500 uppercase font-medium">
                   {exp.period}
@@ -693,13 +691,13 @@ export default function App() {
           {/* Header Section */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <div className="p-1 px-3.5 border border-neutral-900 rounded-full w-fit bg-neutral-950/40 text-[10px] font-mono uppercase tracking-widest text-neutral-500 mx-auto">
-               Inbound Link Gateway
+              Hubungi Saya
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-medium text-white tracking-tight">
-              Synchronize Connection
+              Ayo Berdiskusi
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-              Initialize a digital handshake protocol. Messages will instantly persist to your local browser storage, allowing thorough review.
+              Kirim pesan Anda di sini. Pesan akan langsung tersimpan di penyimpanan browser lokal Anda untuk Anda tinjau kembali.
             </p>
           </div>
 
@@ -712,7 +710,7 @@ export default function App() {
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left space-y-1">
             <span className="text-neutral-400 block font-bold font-display uppercase tracking-wider text-sm">Ganes Riski P.</span>
-            <span className="block text-[10px] text-neutral-500 capitalize">{PORTFOLIO_OWNER.title} • All Rights Persisted</span>
+            <span className="block text-[10px] text-neutral-500 capitalize">{PORTFOLIO_OWNER.title} • Seluruh Hak Cipta Dilindungi</span>
           </div>
 
           <div id="footer-actions" className="flex items-center space-x-6">
@@ -744,7 +742,7 @@ export default function App() {
           </div>
 
           <div className="text-center md:text-right space-y-1">
-            <span className="block text-[10px] text-neutral-600">CLIENT PROTOCOL: ENCRYPTED PORT-3000</span>
+            <span className="block text-[10px] text-neutral-600">PROTOKOL KLIEN: PORT TERENKRIPSI-3000</span>
             <button
               id="reset-state-btn"
               onClick={() => {
@@ -753,9 +751,9 @@ export default function App() {
                 window.location.reload();
               }}
               className="text-[10px] text-rose-500 hover:text-rose-400 uppercase tracking-widest block transition-colors mt-1"
-              title="Restores original settings and flushes stored localStorage"
+              title="Mengembalikan pengaturan asli dan menghapus localStorage yang tersimpan"
             >
-              [ RESET CORE SYSTEMS ]
+              [ RESET SISTEM INTI ]
             </button>
           </div>
         </div>

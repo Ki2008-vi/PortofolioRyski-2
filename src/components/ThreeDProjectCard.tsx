@@ -165,13 +165,18 @@ export default function ThreeDProjectCard({ project, accent, onSelect }: ThreeDP
                 {getCategoryIcon()}
               </div>
               <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
-                {project.category}
+                {{
+                  "Backend Platform": "Platform Backend",
+                  "Distributed Systems": "Sistem Terdistribusi",
+                  "Full-Stack AI": "AI Full-Stack",
+                  "Web Experience": "Pengalaman Web"
+                }[project.category] || project.category}
               </span>
             </div>
 
             {project.featured && (
               <span className={`flex items-center gap-1 text-[10px] font-mono uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full border ${style.border} ${style.bg} ${style.text}`}>
-                <Award className="h-3 w-3" /> High Impact
+                <Award className="h-3 w-3" /> Dampak Tinggi
               </span>
             )}
           </div>
@@ -186,7 +191,7 @@ export default function ThreeDProjectCard({ project, accent, onSelect }: ThreeDP
         </div>
 
         {/* Impact Metric display inside the card with high visual fidelity */}
-        <div 
+        <div
           className="grid grid-cols-3 gap-3 py-3 my-4 border-t border-b border-neutral-900/60 z-10"
           style={{ transform: "translateZ(45px)" }}
         >
@@ -215,14 +220,14 @@ export default function ThreeDProjectCard({ project, accent, onSelect }: ThreeDP
             ))}
             {project.technologies.length > 4 && (
               <span className="text-[10px] font-mono text-neutral-500 px-1.5 py-0.5">
-                +{project.technologies.length - 4} more
+                +{project.technologies.length - 4} lainnya
               </span>
             )}
           </div>
 
           <div className="flex items-center justify-between pt-2 border-t border-neutral-900/40 text-xs font-mono text-neutral-400 group-hover:text-white transition-colors duration-200">
             <span className="flex items-center gap-1">
-              Case Study Spec <span className={`inline-block translate-x-0 group-hover:translate-x-1 transition-transform duration-200 ${style.text}`}>→</span>
+              Spek Studi Kasus <span className={`inline-block translate-x-0 group-hover:translate-x-1 transition-transform duration-200 ${style.text}`}>→</span>
             </span>
             <div className="flex items-center space-x-2">
               {project.githubUrl && (

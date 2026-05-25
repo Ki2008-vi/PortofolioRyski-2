@@ -79,106 +79,106 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
     if (id === "hpc-cache-mesh") {
       return (
         <pre className={`text-[10px] md:text-xs font-mono opacity-85 leading-relaxed overflow-x-auto p-4 md:p-6 bg-neutral-950 rounded-xl border border-neutral-900/80`}>
-<span className="text-neutral-500">// AuraCache Replication Architecture Map</span>
-{`
- ┌────────────────────── Peer Mesh [GRPC Pipelines] ─────────────────────┐
- │                                                                       │
- v                                                                       v
-┌──────────────┐         ┌──────────────┐                        ┌──────────────┐
-│  Edge Node   │◀───────▶│  Edge Node   │◀──────────────────────▶│  Edge Node   │
-│  AWS-USW2    │         │  AWS-USE1    │                        │  AWS-EUC1    │
-├──────────────┤         ├──────────────┤                        ├──────────────┤
-│  Rust Proxy  │         │  Rust Proxy  │                        │  Rust Proxy  │
-│  Consistent  │         │  Consistent  │                        │  Consistent  │
-│  Hash Ring   │         │  Hash Ring   │                        │  Hash Ring   │
-└──────┬───────┘         └──────┬───────┘                        └──────┬───────┘
-       │                        │                                       │
-       │ (Cache Hit 85ms)       │ (Cache Miss - Dynamic TTL Decay)       │
-       ▼                        ▼                                       ▼
- ┌───────────┐            ┌───────────┐                           ┌───────────┐
- │ Redis-Repl│            │ DB Buffer │                           │ DB Buffer │
- └───────────┘            └─────┬─────┘                           └─────┬─────┘
-                                │                                       │
-                                └───────► [Postgres Master Cluster] ◀───┘
-                                          (Stampede Herd Blocked)
+          <span className="text-neutral-500">// Peta Arsitektur Replikasi AuraCache</span>
+          {`
+  ┌────────────────────── Mesh Peer [Jalur GRPC] ─────────────────────┐
+  │                                                                   │
+  v                                                                   v
+ ┌──────────────┐         ┌──────────────┐                        ┌──────────────┐
+ │  Node Tepi   │◀───────▶│  Node Tepi   │◀──────────────────────▶│  Node Tepi   │
+ │  AWS-USW2    │         │  AWS-USE1    │                        │  AWS-EUC1    │
+ ├──────────────┤         ├──────────────┤                        ├──────────────┤
+ │ Proksi Rust  │         │ Proksi Rust  │                        │ Proksi Rust  │
+ │ Konsisten    │         │ Konsisten    │                        │ Konsisten    │
+ │ Hash Ring    │         │ Hash Ring    │                        │ Hash Ring    │
+ └──────┬───────┘         └──────┬───────┘                        └──────┬───────┘
+        │                        │                                       │
+        │ (Hit Cache 85ms)       │ (Miss Cache - Penurunan TTL Dinamis)  │
+        ▼                        ▼                                       ▼
+  ┌───────────┐            ┌───────────┐                           ┌───────────┐
+  │ Repl-Redis│            │ Buffer DB │                           │ Buffer DB │
+  └───────────┘            └─────┬─────┘                           └─────┬─────┘
+                                 │                                       │
+                                 └───────► [Klaster Master Postgres] ◀───┘
+                                           (Stampede Herd Diblokir)
 `}
         </pre>
       );
     } else if (id === "ai-telemetry-engine") {
       return (
         <pre className={`text-[10px] md:text-xs font-mono opacity-85 leading-relaxed overflow-x-auto p-4 md:p-6 bg-neutral-950 rounded-xl border border-neutral-900/80`}>
-<span className="text-neutral-500">// Anomaly Predictive Telemetry Sentry Pipeline</span>
-{`
-┌────────────────────────────────────────────────────────────────────────┐
-│ 100K+ Logs/sec ──────► Sliding-Window Log Ringbuffer (C++ Daemon)       │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │ Memory Buffers
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│  Gemini AI Core Parser & Embedding Vectorizer (Server-Side Proxy)      │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │ Classification
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│  Precursor Signal Trigger Match (Self-Healing Anomaly Tracker)        │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │ Threshold Confidence >94%
-                                    ▼
-                 ┌─── Outage Warning Broadcast ───┐
-                 │                                │
-                 ▼                                ▼
-       ┌──────────────────┐             ┌──────────────────┐
-       │ Auto Rolling     │             │ Dev Notification │
-       │ Container Update │             │ Metric Logs Hub  │
-       └──────────────────┘             └──────────────────┘
+          <span className="text-neutral-500">// Jalur Pengintai Telemetri Prediktif Anomali</span>
+          {`
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ 100rb+ Log/dtk ──────► Ringbuffer Log Jendela-Bergeser (Daemon C++)    │
+ └───────────────────────────────────┬────────────────────────────────────┘
+                                     │ Buffer Memori
+                                     ▼
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │  Parser Inti AI Gemini & Vektorisasi Embedding (Proksi Sisi-Server)    │
+ └───────────────────────────────────┬────────────────────────────────────┘
+                                     │ Klasifikasi
+                                     ▼
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │  Pemicu Sinyal Prekursor Cocok (Pelacak Anomali Mandiri)               │
+ └───────────────────────────────────┬────────────────────────────────────┘
+                                     │ Ambang Keyakinan >94%
+                                     ▼
+                  ┌─── Siaran Peringatan Pemadaman ───┐
+                  │                                   │
+                  ▼                                   ▼
+        ┌──────────────────┐                ┌──────────────────┐
+        │ Pembaruan        │                │ Notifikasi Dev   │
+        │ Kontainer Rutin  │                │ Hub Log Metrik   │
+        └──────────────────┘                └──────────────────┘
 `}
         </pre>
       );
     } else if (id === "reactive-analytics-canvas") {
       return (
         <pre className={`text-[10px] md:text-xs font-mono opacity-85 leading-relaxed overflow-x-auto p-4 md:p-6 bg-neutral-950 rounded-xl border border-neutral-900/80`}>
-<span className="text-neutral-500">// Canvas Dual-Buffer Hardware-Accelerated Rendering</span>
-{`
-┌─────────────────────────────────────────────────────────────────────────┐
-│ User Mouse/Zoom Input Event ───────► Spatial Indexing Partition (R-Tree)│
-└────────────────────────────────────────────────┬────────────────────────┘
-                                                 │ Visible Bounds Target
-                                                 ▼
-               ┌──────────────────────────────────────────────────┐
-               │         Dual-Core Event-Orchestration            │
-               ├────────────────────────┬─────────────────────────┤
-               │ Main Window Process    │ Web Worker Background   │
-               │ (Visual State Updates) │ (Topological Sorter)    │
-               └──────────┬─────────────┴──────────┬──────────────┘
-                          │                        │ Buffer Matrix
-                          ▼                        ▼
-               ┌──────────────────────────────────────────────────┐
-               │   Double-Buffered HTML5 2D Vector Context Loop   │
-               ├──────────────────────────────────────────────────┤
-               │   Hardware Accelerations Enabled (GPU Canvas)    │
-               └──────────────────────────────────────────────────┘
+          <span className="text-neutral-500">// Rendering Terakselerasi Perangkat Keras Dual-Buffer Canvas</span>
+          {`
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │ Event Input Mouse/Zoom Pengguna ──► Partisi Pengindeksan Spasial (R-Tree)│
+ └────────────────────────────────────────────────┬────────────────────────┘
+                                                  │ Target Batas Terlihat
+                                                  ▼
+                ┌──────────────────────────────────────────────────┐
+                │          Orkestrasi Event Dual-Core              │
+                ├────────────────────────┬─────────────────────────┤
+                │ Proses Jendela Utama   │ Latar Belakang Web Worker│
+                │ (Update Status Visual) │ (Penyortir Topologis)    │
+                └──────────┬─────────────┴──────────┬──────────────┘
+                           │                        │ Matrix Buffer
+                           ▼                        ▼
+                ┌──────────────────────────────────────────────────┐
+                │   Loop Konteks Vektor 2D HTML5 Double-Buffered   │
+                ├──────────────────────────────────────────────────┤
+                │   Akselerasi Perangkat Keras Aktif (GPU Canvas)  │
+                └──────────────────────────────────────────────────┘
 `}
         </pre>
       );
     } else {
       return (
         <pre className={`text-[10px] md:text-xs font-mono opacity-85 leading-relaxed overflow-x-auto p-4 md:p-6 bg-neutral-950 rounded-xl border border-neutral-900/80`}>
-<span className="text-neutral-500">// Edge API Proxying and Memory Mapping Architecture</span>
-{`
-┌───────────────────────┐          ┌───────────────────────┐
-│ Client Request Inbound│ ────────►│ Sub-Millisecond Proxy │
-└───────────────────────┘          └───────────┬───────────┘
-                                               │ Ring Buffer Read
-                                               ▼
-┌───────────────────────┐          ┌───────────────────────┐
-│ lock-free dynamic TTL │◄─────────│ libuv single-threaded │
-│ Token Bucket Cache    │          │ C++ Async Core Loop   │
-└───────────────────────┘          └───────────┬───────────┘
-                                               │ Zero-Copy Buffers
-                                               ▼
-                                   ┌───────────────────────┐
-                                   │ Downstream Backends   │
-                                   └───────────────────────┘
+          <span className="text-neutral-500">// Arsitektur Proksi API Tepi dan Pemetaan Memori</span>
+          {`
+ ┌───────────────────────┐          ┌───────────────────────┐
+ │ Permintaan Klien Masuk│ ────────►│ Proksi Sub-Milidetik  │
+ └───────────────────────┘          └───────────┬───────────┘
+                                                │ Baca Ring Buffer
+                                                ▼
+ ┌───────────────────────┐          ┌───────────────────────┐
+ │ Bebas-Kunci TTL Dinam │◄─────────│ libuv single-threaded │
+ │ Cache Token Bucket    │          │ Loop Inti Asinkron C++│
+ └───────────────────────┘          └───────────┬───────────┘
+                                                │ Buffer Zero-Copy
+                                                ▼
+                                    ┌───────────────────────┐
+                                    │ Backend Hilir         │
+                                    └───────────────────────┘
 `}
         </pre>
       );
@@ -189,20 +189,29 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
     <div id="project-showcase-root">
       {/* Category filters */}
       <div id="project-filters" className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
-        {categories.map((cat) => (
-          <button
-            id={`filter-btn-${cat.replace(/\s+/g, "-")}`}
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-widest transition-all duration-300 border select-none ${
-              activeCategory === cat
+        {categories.map((cat) => {
+          const catLabel = {
+            "All": "Semua",
+            "Distributed Systems": "Sistem Terdistribusi",
+            "Full-Stack AI": "AI Full-Stack",
+            "Web Experience": "Pengalaman Web",
+            "Backend Platform": "Platform Backend"
+          }[cat] || cat;
+
+          return (
+            <button
+              id={`filter-btn-${cat.replace(/\s+/g, "-")}`}
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-widest transition-all duration-300 border select-none ${activeCategory === cat
                 ? `${style.borderActive} ${style.bg} ${style.text} font-bold ${style.glow} shadow-lg shadow-black`
                 : "border-neutral-900/80 bg-neutral-950/40 text-neutral-400 hover:text-neutral-100 hover:border-neutral-800"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+                }`}
+            >
+              {catLabel}
+            </button>
+          );
+        })}
       </div>
 
       {/* Grid displaying the high impact cards with stagger state entrance */}
@@ -279,7 +288,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
 
                 {/* Big Metric Grid */}
                 <h3 className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4 flex items-center gap-1.5 font-semibold">
-                  <Zap className={`h-4 w-4 ${style.text}`} /> Key Quantifiable Impact Metrics
+                  <Zap className={`h-4 w-4 ${style.text}`} /> Metrik Dampak Proyek
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                   {selectedProject.impactMetrics.map((met) => (
@@ -307,7 +316,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
                 <div className="space-y-6 mb-10">
                   <div>
                     <h4 className="text-sm font-mono uppercase tracking-widest text-neutral-400 mb-2 font-semibold flex items-center gap-2">
-                       The Engineering Challenge
+                      Tantangan Rekayasa
                     </h4>
                     <p className="text-sm text-neutral-400 leading-relaxed font-sans pl-4 border-l-2 border-neutral-900">
                       {selectedProject.details.challenge}
@@ -316,7 +325,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
 
                   <div>
                     <h4 className="text-sm font-mono uppercase tracking-widest text-neutral-400 mb-2 font-semibold flex items-center gap-2">
-                       Architectural Action & Patterns
+                      Tindakan & Pola Arsitektural
                     </h4>
                     <p className="text-sm text-neutral-400 leading-relaxed font-sans pl-4 border-l-2 border-neutral-900">
                       {selectedProject.details.action}
@@ -325,7 +334,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
 
                   <div>
                     <h4 className="text-sm font-mono uppercase tracking-widest text-neutral-400 mb-2 font-semibold flex items-center gap-2">
-                       Systems Outcome & SLA Stability
+                      Hasil & Stabilitas Sistem
                     </h4>
                     <p className="text-sm text-neutral-400 leading-relaxed font-sans pl-4 border-l-2 border-neutral-900">
                       {selectedProject.details.outcome}
@@ -336,7 +345,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
                 {/* Technology Specs */}
                 <div className="mb-10">
                   <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3.5 font-semibold">
-                    Technical Specifications Stack
+                    Stack Spesifikasi Teknis
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
@@ -353,7 +362,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
                 {/* Architecture Visual Grid Block */}
                 <div className="mb-12">
                   <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4 font-semibold flex items-center gap-1.5">
-                    <Info className="h-4 w-4" /> System Topology Plan
+                    <Info className="h-4 w-4" /> Alur Arsitektur Sistem
                   </h4>
                   {renderArchitectureSchema(selectedProject.id)}
                 </div>
@@ -362,7 +371,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
               {/* Action buttons footer */}
               <div className="pt-6 border-t border-neutral-900 flex flex-wrap items-center justify-between gap-4">
                 <span className="text-[11px] text-neutral-500 font-mono">
-                  SLA Compliant Project Specification
+                  Detail Teknis Proyek Terverifikasi
                 </span>
 
                 <div className="flex items-center gap-3">
@@ -374,7 +383,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
                       rel="noopener noreferrer"
                       className="px-4 py-2 border border-neutral-800 hover:border-neutral-700 bg-neutral-950 text-neutral-300 hover:text-white transition-all text-xs font-mono rounded-xl flex items-center gap-1.5"
                     >
-                      <Github className="h-3.5 w-3.5" /> Source Spec
+                      <Github className="h-3.5 w-3.5" /> Spek Sumber
                     </a>
                   )}
                   {selectedProject.liveUrl && (
@@ -386,7 +395,7 @@ export default function ProjectShowcase({ accent }: ProjectShowcaseProps) {
                       className={`px-4 py-2 text-neutral-950 font-bold transition-all text-xs font-mono rounded-xl flex items-center gap-1.5`}
                       style={{ backgroundColor: style.text }}
                     >
-                      <ExternalLink className="h-3.5 w-3.5" strokeWidth={2.5} /> Deploy Specs
+                      <ExternalLink className="h-3.5 w-3.5" strokeWidth={2.5} /> Lihat Hasil
                     </a>
                   )}
                 </div>

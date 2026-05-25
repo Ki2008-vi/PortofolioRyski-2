@@ -104,7 +104,7 @@ export default function ContactSection({ accent }: ContactSectionProps) {
         id: `msg-${Date.now()}`,
         name: name.trim(),
         email: email.trim(),
-        company: company.trim() || "Independent Systems",
+        company: company.trim() || "Sistem Mandiri",
         message: message.trim(),
         timestamp: new Date().toISOString(),
       };
@@ -137,7 +137,7 @@ export default function ContactSection({ accent }: ContactSectionProps) {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(messages, null, 2));
     const dlAnchorElem = document.createElement("a");
     dlAnchorElem.setAttribute("href", dataStr);
-    dlAnchorElem.setAttribute("download", "marcus_vance_contacts.json");
+    dlAnchorElem.setAttribute("download", "ganes_riski_kontak.json");
     dlAnchorElem.click();
   };
 
@@ -147,27 +147,27 @@ export default function ContactSection({ accent }: ContactSectionProps) {
         {/* Left Side structural message */}
         <div id="contact-info-panel" className="md:col-span-5 space-y-5">
           <div className="p-1 px-3.5 border border-neutral-900 rounded-full w-fit bg-neutral-950/40 text-[10px] font-mono uppercase tracking-widest text-neutral-500">
-             Contact Inbound
+            Pesan Masuk
           </div>
 
           <h3 className="text-xl md:text-2xl font-sans font-medium text-neutral-100 tracking-tight leading-tight">
-            Initiate System Sync
+            Mulai Percakapan
           </h3>
 
           <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-            Ready to integrate full-stack apps, design database structures, or discuss junior engineering roles? Submit the secure handshaking form adjacent to initiate dynamic communication.
+            Apakah Anda ingin membangun aplikasi Full Stack, merancang struktur database, atau berdiskusi mengenai proyek web lainnya? Silakan isi formulir di samping untuk menghubungi saya.
           </p>
 
           <p className="text-[11px] text-neutral-500 font-mono leading-relaxed">
-            * Direct secure encryption. Submitted payload will instantly persist in your browser sandbox, allowing full local review.
+            * Pesan aman dan terenkripsi. Pesan yang Anda kirim akan disimpan di penyimpanan lokal browser Anda agar Anda dapat meninjaunya kembali.
           </p>
 
           {/* Symmetrical wire line */}
           <div className="h-[1px] w-12 bg-neutral-800" />
 
           <div className="space-y-1">
-            <span className="block text-[10px] font-mono uppercase text-neutral-600">Location Server</span>
-            <span className="text-xs text-neutral-400 font-sans">Pacitan, Jawa Timur (Open to Global Remote)</span>
+            <span className="block text-[10px] font-mono uppercase text-neutral-600">Server Lokasi</span>
+            <span className="text-xs text-neutral-400 font-sans">Pacitan, Jawa Timur (Terbuka untuk Remote Global)</span>
           </div>
         </div>
 
@@ -183,20 +183,20 @@ export default function ContactSection({ accent }: ContactSectionProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col space-y-1.5">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Visitor Identity*</label>
+                <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Nama Anda*</label>
                 <input
                   id="contact-name-input"
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Full Name"
+                  placeholder="Nama Lengkap"
                   className={`px-4 py-2.5 rounded-xl border border-neutral-900/60 bg-neutral-950/40 text-neutral-200 text-xs focus:outline-none focus:ring-2 ${style.ring} ${style.focusBorder} transition-all`}
                 />
               </div>
 
               <div className="flex flex-col space-y-1.5">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Digital Endpoint*</label>
+                <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Email*</label>
                 <input
                   id="contact-email-input"
                   type="email"
@@ -210,7 +210,7 @@ export default function ContactSection({ accent }: ContactSectionProps) {
             </div>
 
             <div className="flex flex-col space-y-1.5">
-              <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Organization (Optional)</label>
+              <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Organisasi (Opsional)</label>
               <input
                 id="contact-company-input"
                 type="text"
@@ -222,14 +222,14 @@ export default function ContactSection({ accent }: ContactSectionProps) {
             </div>
 
             <div className="flex flex-col space-y-1.5">
-              <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Engineering Specification Payload*</label>
+              <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Pesan Anda*</label>
               <textarea
                 id="contact-message-input"
                 required
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Core architectural proposals, consulting, or general questions..."
+                placeholder="Tuliskan pesan, pertanyaan, atau penawaran kerja sama di sini..."
                 className={`px-4 py-2.5 rounded-xl border border-neutral-900/60 bg-neutral-950/40 text-neutral-200 text-xs focus:outline-none focus:ring-2 ${style.ring} ${style.focusBorder} transition-all resize-none`}
               />
             </div>
@@ -244,12 +244,12 @@ export default function ContactSection({ accent }: ContactSectionProps) {
               {isSubmitting ? (
                 <>
                   <span className="animate-spin inline-block w-3.5 h-3.5 border-2 border-neutral-950 border-t-transparent rounded-full" />
-                  <span>Syncing Channels...</span>
+                  <span>Mengirim...</span>
                 </>
               ) : (
                 <>
                   <Send className="h-3.5 w-3.5" strokeWidth={2.5} />
-                  <span>Broadcast Payload</span>
+                  <span>Kirim Pesan</span>
                 </>
               )}
             </button>
@@ -265,7 +265,7 @@ export default function ContactSection({ accent }: ContactSectionProps) {
                   className="p-3 bg-neutral-900/80 border border-neutral-800 rounded-xl flex items-center space-x-2.5 text-xs text-neutral-200"
                 >
                   <CheckCircle2 className={`h-4.5 w-4.5 ${style.text}`} />
-                  <span className="font-sans leading-tight">Payload received! PERSISTED to browser local storage. Trigger console below to view.</span>
+                  <span className="font-sans leading-tight">Pesan terkirim! Tersimpan di penyimpanan lokal browser Anda. Silakan cek konsol di bawah.</span>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -282,13 +282,13 @@ export default function ContactSection({ accent }: ContactSectionProps) {
         >
           <div className="flex items-center space-x-3 text-xs font-mono">
             <Terminal className={`h-4 w-4 ${style.text}`} />
-            <span className="text-neutral-400">Secure Vault Message Terminal</span>
+            <span className="text-neutral-400">Riwayat Pesan Tersimpan</span>
             <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-900/90 text-neutral-500 font-bold uppercase select-none">
               {messages.length} persist
             </span>
           </div>
           <span className="text-xs text-neutral-500 font-mono">
-            {showConsole ? "[ HIDE ENGINE ]" : "[ SHOW ENGINE ]"}
+            {showConsole ? "[ SEMBUNYIKAN ]" : "[ TAMPILKAN ]"}
           </span>
         </button>
 
@@ -305,28 +305,28 @@ export default function ContactSection({ accent }: ContactSectionProps) {
                 {messages.length === 0 ? (
                   <div className="py-6 text-center text-xs font-mono text-neutral-600 flex flex-col items-center gap-1">
                     <MessageSquareCode className="h-6 w-6 opacity-40 mb-1" />
-                    <span>[ TRANSMISSION LOGS EMPTY ]</span>
-                    <span>No active payloads saved. Submit the contact form to generate transactional logs.</span>
+                    <span>[ LOG TRANSMISI KOSONG ]</span>
+                    <span>Tidak ada payload aktif yang disimpan. Kirim formulir kontak untuk menghasilkan log transaksional.</span>
                   </div>
                 ) : (
                   <div className="space-y-3">
                     {/* Control Actions */}
                     <div className="flex items-center justify-between pb-3.5 border-b border-neutral-900/70 text-xs font-mono">
-                      <span className="text-neutral-500">// Vault Persistence Logs</span>
+                      <span className="text-neutral-500">// Log Persistensi Brankas</span>
                       <div className="flex items-center space-x-3.5">
                         <button
                           id="dl-logs-btn"
                           onClick={downloadLOGStream}
                           className="flex items-center gap-1 hover:text-white transition-colors"
                         >
-                          <Download className="h-3 w-3" /> JSON Export
+                          <Download className="h-3 w-3" /> Ekspor JSON
                         </button>
                         <button
                           id="clear-logs-btn"
                           onClick={clearMessages}
                           className="flex items-center gap-1 text-rose-500 hover:text-rose-400 transition-colors"
                         >
-                          <Trash2 className="h-3 w-3" /> Flush Vault
+                          <Trash2 className="h-3 w-3" /> Kosongkan Brankas
                         </button>
                       </div>
                     </div>
@@ -355,7 +355,7 @@ export default function ContactSection({ accent }: ContactSectionProps) {
                         </div>
 
                         <div className="pt-2 text-neutral-300 font-sans leading-relaxed text-xs">
-                          <span className="text-neutral-600 font-mono text-[11px] block">// Payload body</span>
+                          <span className="text-neutral-600 font-mono text-[11px] block">// Isi Payload</span>
                           {msg.message}
                         </div>
                       </div>

@@ -91,21 +91,30 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
     <div id="interactive-skills-root" className="max-w-6xl mx-auto px-4">
       {/* Tab bar select */}
       <div id="skills-cat-navigation" className="flex flex-wrap items-center justify-center gap-2 mb-10">
-        {categories.map((cat) => (
-          <button
-            id={`skills-tab-${cat.replace(/\s+/g, "-")}`}
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-mono tracking-wider uppercase transition-all duration-200 border flex items-center gap-1.5 select-none ${
-              selectedCategory === cat
+        {categories.map((cat) => {
+          const catLabel = {
+            "All": "Semua",
+            "Core Systems": "Sistem Inti",
+            "AI & Cloud Integrations": "Integrasi AI & Cloud",
+            "Distributed Frontend": "Frontend Terdistribusi",
+            "Architecture & Culture": "Arsitektur & Budaya"
+          }[cat] || cat;
+
+          return (
+            <button
+              id={`skills-tab-${cat.replace(/\s+/g, "-")}`}
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-mono tracking-wider uppercase transition-all duration-200 border flex items-center gap-1.5 select-none ${selectedCategory === cat
                 ? `${style.accentLine} text-neutral-950 font-bold border-transparent shadow-lg`
                 : "border-neutral-900 bg-neutral-950/20 text-neutral-400 hover:text-white"
-            }`}
-          >
-            {getCategoryIcon(cat)}
-            <span>{cat}</span>
-          </button>
-        ))}
+                }`}
+            >
+              {getCategoryIcon(cat)}
+              <span>{catLabel}</span>
+            </button>
+          );
+        })}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -144,7 +153,7 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
                       {skill.percentage}%
                     </div>
                     <div className="text-[9px] text-neutral-500">
-                      {skill.yearsOfExperience} Yrs Exp
+                      {skill.yearsOfExperience} Thn Pengalaman
                     </div>
                   </div>
                 </div>
@@ -174,7 +183,14 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
                 <div>
                   <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
                     {getCategoryIcon(hoveredSkill.category)}
-                    <span>{hoveredSkill.category} Focus</span>
+                    <span>Fokus {
+                      {
+                        "Core Systems": "Sistem Inti",
+                        "AI & Cloud Integrations": "Integrasi AI & Cloud",
+                        "Distributed Frontend": "Frontend Terdistribusi",
+                        "Architecture & Culture": "Arsitektur & Budaya"
+                      }[hoveredSkill.category] || hoveredSkill.category
+                    }</span>
                   </div>
 
                   <h3 className="text-xl font-sans font-medium text-white tracking-tight mb-3">
@@ -187,7 +203,7 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
                         {hoveredSkill.percentage}%
                       </div>
                       <div className="text-[9.5px] font-mono text-neutral-500 uppercase tracking-widest">
-                        Competency
+                        Kompetensi
                       </div>
                     </div>
 
@@ -196,7 +212,7 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
                         {hoveredSkill.yearsOfExperience}
                       </div>
                       <div className="text-[9.5px] font-mono text-neutral-500 uppercase tracking-widest">
-                        Years Active
+                        Tahun Aktif
                       </div>
                     </div>
                   </div>
@@ -208,7 +224,7 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
 
                 <div className="pt-4 border-t border-neutral-900/60 flex items-center space-x-2.5 text-xs text-neutral-500 font-mono">
                   <Award className={`h-4 w-4 ${style.text}`} />
-                  <span>SLA Confirmed System Competency</span>
+                  <span>Kompetensi Terverifikasi</span>
                 </div>
               </motion.div>
             ) : (
@@ -216,20 +232,20 @@ export default function InteractiveSkills({ accent }: InteractiveSkillsProps) {
                 <div>
                   <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
                     <ShieldAlert className="h-4 w-4" />
-                    <span>Real-Time Sensor Idle</span>
+                    <span>Mode Tunggu</span>
                   </div>
 
                   <h3 className="text-lg font-sans font-medium text-neutral-300 tracking-tight mb-3">
-                    Bespoke Performance Diagnostics
+                    Detail Kemampuan
                   </h3>
 
                   <p className="text-xs text-neutral-500 leading-relaxed font-sans">
-                    Hover your cursor or focus over any architecture nodes in the adjacent grid to load comprehensive telemetry data, specialization duration values, and targeted SLA diagnostics reports.
+                    Arahkan kursor atau pilih salah satu keahlian di samping untuk melihat detail kompetensi, tahun pengalaman, dan statistik kemampuan saya.
                   </p>
                 </div>
 
                 <div className="mt-8 border-t border-neutral-900/60 pt-4 text-[10px] text-neutral-600 font-mono uppercase tracking-widest">
-                  System telemetry awaiting pointer trigger...
+                  Menunggu pemilihan keahlian...
                 </div>
               </div>
             )}

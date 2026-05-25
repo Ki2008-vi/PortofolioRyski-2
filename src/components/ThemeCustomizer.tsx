@@ -16,35 +16,35 @@ export default function ThemeCustomizer({ activeAccent, onChangeAccent }: ThemeC
   const options: Array<{ id: LuxuryAccent; label: string; color: string; border: string; glow: string }> = [
     {
       id: "gold",
-      label: "Amber Gold",
+      label: "Emas Kuning",
       color: "bg-amber-400",
       border: "border-amber-400/30",
       glow: "shadow-amber-500/20",
     },
     {
       id: "emerald",
-      label: "Royal Emerald",
+      label: "Zamrud Kerajaan",
       color: "bg-emerald-400",
       border: "border-emerald-400/30",
       glow: "shadow-emerald-500/20",
     },
     {
       id: "bronze",
-      label: "Bronze Copper",
+      label: "Tembaga Perunggu",
       color: "bg-orange-400",
       border: "border-orange-400/30",
       glow: "shadow-orange-500/20",
     },
     {
       id: "platinum",
-      label: "Platinum Silver",
+      label: "Perak Platinum",
       color: "bg-slate-300",
       border: "border-slate-300/30",
       glow: "shadow-slate-400/20",
     },
     {
       id: "crimson",
-      label: "Obsidian Rose",
+      label: "Mawar Obsidian",
       color: "bg-rose-500",
       border: "border-rose-500/30",
       glow: "shadow-rose-500/20",
@@ -71,12 +71,12 @@ export default function ThemeCustomizer({ activeAccent, onChangeAccent }: ThemeC
       <div className="flex items-center space-x-2.5 mb-3.5">
         <Sliders className={`h-4 w-4 ${getAccentColorText()}`} />
         <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-semibold">
-          Luxury Accent Canvas
+          Kanvas Aksen Mewah
         </h4>
       </div>
 
       <p className="text-[11px] text-neutral-500 mb-4 leading-relaxed font-sans">
-        Select a custom metallic accent palette to adapt the page gradients, 3D physics loops, and ambient shadows.
+        Pilih palet aksen logam kustom untuk menyesuaikan gradien halaman, loop fisika 3D, dan bayangan sekitar.
       </p>
 
       <div className="flex flex-col gap-2">
@@ -87,11 +87,10 @@ export default function ThemeCustomizer({ activeAccent, onChangeAccent }: ThemeC
               id={`theme-btn-${opt.id}`}
               key={opt.id}
               onClick={() => onChangeAccent(opt.id)}
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl border text-left transition-all duration-200 select-none ${
-                isActive
+              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl border text-left transition-all duration-200 select-none ${isActive
                   ? `bg-neutral-900 border-neutral-800 ${opt.glow} shadow-md`
                   : "bg-transparent border-transparent hover:bg-neutral-900/40"
-              }`}
+                }`}
             >
               <div className="flex items-center space-x-2.5">
                 <span className={`block w-2.5 h-2.5 rounded-full ${opt.color} ring-4 ${isActive ? "ring-neutral-900" : "ring-transparent"}`} />
@@ -110,7 +109,7 @@ export default function ThemeCustomizer({ activeAccent, onChangeAccent }: ThemeC
 
       <div className="mt-4 pt-3.5 border-t border-neutral-900/60 flex items-center justify-between text-[10px] font-mono text-neutral-500">
         <span className="flex items-center gap-1">
-          <Sun className="h-3 w-3" /> System Engine Ready
+          <Sun className="h-3 w-3" /> Mesin Sistem Siap
         </span>
         <span>v3.5.0</span>
       </div>
