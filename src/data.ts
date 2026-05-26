@@ -16,10 +16,10 @@ export const PORTFOLIO_OWNER = {
 
 export const HIGH_IMPACT_PROJECTS: Project[] = [
   {
-    id: "aico-ecommerce",
-    title: "Aico - Platform E-Commerce",
+    id: "Membuat E-Commerce",
+    title: "Membuat E-Commerce",
     role: "Pengembang Web Full-Stack",
-    company: "AICO Digital Solutions",
+    company: "RysWpsite",
     category: "Web Experience",
     summary: "Merancang dan membangun platform e-commerce premium dengan fitur keranjang belanja dinamis, variasi produk, dan alur pembayaran kustom.",
     details: {
@@ -34,18 +34,19 @@ export const HIGH_IMPACT_PROJECTS: Project[] = [
     ],
     technologies: ["React", "MySQL", "HTML5", "JavaScript"],
     imagePrompt: "A sleek luxury e-commerce interface mockup hovering in front of glowing gold background grids, premium UI elements, high visual fidelity",
-    featured: true
+    featured: true,
+    liveUrl: "https://aicostore27.com"
   },
   {
     id: "qrpay-verification",
-    title: "Global Production Ponorogo",
+    title: "Membuat Profil Perusahaan",
     role: "Pengembang Sistem Front End",
-    company: "Global Production Ponorogo",
+    company: "RysWpsite",
     category: "Web Experience",
-    summary: "Membangun website profil perusahaan profesional untuk Global Production Ponorogo guna menampilkan informasi, produk, dan layanan perusahaan kepada calon klien.",
+    summary: "Membangun website profil perusahaan profesional untuk para company guna menampilkan informasi, produk, dan layanan perusahaan kepada calon klien.",
     details: {
       challenge: "Perusahaan membutuhkan kehadiran online yang modern dan profesional untuk menarik klien internasional dan menampilkan katalog produk mereka secara efektif.",
-      action: "Membuat situs web profil perusahaan profesional untuk Global Production Ponorogo, menampilkan informasi perusahaan, produk, dan layanan kepada calon klien.",
+      action: "Membuat situs web profil perusahaan profesional untuk perusahaan, menampilkan informasi perusahaan, produk, dan layanan kepada calon klien.",
       outcome: "Berhasil meluncurkan situs web ke tahap produksi."
     },
     impactMetrics: [
@@ -55,28 +56,30 @@ export const HIGH_IMPACT_PROJECTS: Project[] = [
     ],
     technologies: ["HTML-5", "MySQL", "JavaScript", "Tailwind CSS"],
     imagePrompt: "A glowing futuristic digital QR code hovering in a dark room with subtle gold (#977e45) and deep charcoal neon particles floating around, sleek modern financial developer dashboard aesthetics",
-    featured: true
+    featured: true,
+    liveUrl: "https://globalproductionponorogo.com"
   },
   {
     id: "apexstudio-portfolio",
-    title: "Library School Laravel",
+    title: "Sistem Kustom",
     role: "Pengembang Full Stack",
-    company: "SMK PGRI 2 Ponorogo",
+    company: "RysWpsite",
     category: "Backend Platform",
-    summary: "Membangun situs web perpustakaan sekolah lengkap menggunakan Laravel.",
+    summary: "Membuat sistem kustom untuk berbagai kebutuhan perusahaan.",
     details: {
-      challenge: "Sekolah membutuhkan sistem manajemen perpustakaan yang efisien dan dapat diakses secara digital untuk memudahkan pendataan buku dan layanan bagi siswa.",
-      action: "Membangun aplikasi perpustakaan sekolah menggunakan Laravel dengan sistem multi-user untuk admin dan siswa.",
-      outcome: "Sistem berhasil divalidasi dan dijalankan dalam jaringan internal sekolah untuk operasional harian.",
+      challenge: "Perusahaan membutuhkan sistem yang dapat membantu mereka dalam mengelola data dan informasi perusahaan secara efisien.",
+      action: "Membuat sistem kustom untuk perusahaan, menampilkan informasi perusahaan, produk, dan layanan kepada calon klien.",
+      outcome: "Sistem berhasil divalidasi dan dijalankan dalam jaringan internal perusahaan untuk operasional harian.",
     },
     impactMetrics: [
-      { id: "re-01", value: "Laravel", label: "Sistem Perpustakaan", subtext: "Interaksi yang sangat mulus" },
+      { id: "re-01", value: "Laravel", label: "Sistem Kustom", subtext: "Interaksi yang sangat mulus" },
       { id: "re-02", value: "100%", label: "Peran Admin dan Pengguna", subtext: "Struktur heading & tag yang sempurna" },
-      { id: "re-03", value: "5", label: "Akses Jaringan Sekolah", subtext: "Penyesuai tema dinamis" }
+      { id: "re-03", value: "5", label: "Akses Jaringan Perusahaan", subtext: "Penyesuai tema dinamis" }
     ],
     technologies: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "Motion"],
     imagePrompt: "Elegant golden clock gears floating and deconstructing mid-air over a polished obsidian floor, glowing amber and brass lines, high depth-of-field",
-    featured: true
+    featured: true,
+    liveUrl: "https://contoh-link-sistem-kustom.com"
   }
 ];
 

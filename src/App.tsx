@@ -386,9 +386,9 @@ export default function App() {
                   transition={{ duration: 0.6, delay: 0.15 }}
                   className="text-4xl sm:text-5xl md:text-7xl font-display font-medium tracking-tight text-white leading-[1.05]"
                 >
-                  REKAYASA UNTUK <br />
+                  PERKENALKAN, SAYA <br />
                   <span className={`text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-400 font-semibold block`}>
-                    SKALA BERDAMPAK TINGGI.
+                    GANES RISKI PRATAMA
                   </span>
                 </motion.h1>
 
@@ -557,7 +557,7 @@ export default function App() {
               Karya Pilihan
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-              Menampilkan berbagai solusi web yang pernah saya bangun, mulai dari aplikasi e-commerce hingga sistem manajemen internal.
+              Menampilkan berbagai solusi web yang bisa saya bangun, mulai dari aplikasi e-commerce hingga sistem manajemen internal.
             </p>
           </div>
 
@@ -724,13 +724,13 @@ export default function App() {
               <Github className="h-4 w-4" /> Github
             </a>
             <a
-              id="footer-linkedin-link"
-              href="https://linkedin.com"
+              id="footer-whatsapp-link"
+              href="https://wa.me/6285113028856"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors flex items-center gap-1"
             >
-              <ExternalLink className="h-4 w-4" /> LinkedIn
+              <ExternalLink className="h-4 w-4" /> WhatsApp Business
             </a>
             <a
               id="footer-mail-link"
